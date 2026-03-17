@@ -101,22 +101,8 @@ function buildInstagramLink(handle) {
 }
 
 export default function App() {
-  const [data, setData] = useState(defaultData)
-  const [draft, setDraft] = useState(defaultData)
-  const [isEditorOpen, setIsEditorOpen] = useState(false)
+  const [data] = useState(defaultData)
   const [imageLoadFailed, setImageLoadFailed] = useState(false)
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY)
-      if (!saved) return
-      const merged = { ...defaultData, ...JSON.parse(saved) }
-      setData(merged)
-      setDraft(merged)
-    } catch {
-      localStorage.removeItem(STORAGE_KEY)
-    }
-  }, [])
 
   useEffect(() => {
     setImageLoadFailed(false)
@@ -129,35 +115,6 @@ export default function App() {
   }, [data.whatsapp, data.whatsappMessage])
 
   const instagramHref = useMemo(() => buildInstagramLink(data.instagramHandle), [data.instagramHandle])
-
-  const openEditor = () => {
-    setDraft(data)
-    setIsEditorOpen(true)
-  }
-
-  const saveChanges = () => {
-    setData(draft)
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(draft))
-    setIsEditorOpen(false)
-  }
-
-  const resetChanges = () => {
-    const ok = window.confirm('Quieres restaurar los valores por defecto?')
-    if (!ok) return
-    setData(defaultData)
-    setDraft(defaultData)
-    localStorage.removeItem(STORAGE_KEY)
-  }
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files?.[0]
-    if (!file) return
-    const reader = new FileReader()
-    reader.onload = () => {
-      setDraft((prev) => ({ ...prev, heroImage: String(reader.result) }))
-    }
-    reader.readAsDataURL(file)
-  }
 
   const photoSrc = (data.heroImage || '').trim()
   const hasPhoto = Boolean(photoSrc) && !imageLoadFailed
@@ -177,9 +134,6 @@ export default function App() {
           <a href="#contacto">Contacto</a>
         </div>
         <div className="nav-actions">
-          <button className="btn btn-outline" onClick={openEditor}>
-            Editar
-          </button>
           <a className="btn btn-primary" href={whatsappHref} target="_blank" rel="noreferrer">
             WhatsApp
           </a>
@@ -314,62 +268,7 @@ export default function App() {
         <span>Portfolio profesional - {new Date().getFullYear()}</span>
       </footer>
 
-      {isEditorOpen ? (
-        <div className="editor-overlay" onClick={() => setIsEditorOpen(false)}>
-          <aside className="editor-panel" onClick={(event) => event.stopPropagation()}>
-            <div className="editor-header">
-              <div>
-                <p className="card-kicker">Editor rapido</p>
-                <h3>Actualizar contenido del portfolio</h3>
-              </div>
-              <button className="close-btn" onClick={() => setIsEditorOpen(false)}>
-                x
-              </button>
-            </div>
 
-            <div className="editor-form">
-              {editableFields.map(([key, label]) => {
-                const isLargeText = ['summary', 'whatsappMessage', 'contactText'].includes(key)
-                return (
-                  <label key={key} className="field-block">
-                    <span>{label}</span>
-                    {isLargeText ? (
-                      <textarea
-                        rows="4"
-                        value={draft[key] ?? ''}
-                        onChange={(event) =>
-                          setDraft((prev) => ({ ...prev, [key]: event.target.value }))
-                        }
-                      />
-                    ) : (
-                      <input
-                        value={draft[key] ?? ''}
-                        onChange={(event) =>
-                          setDraft((prev) => ({ ...prev, [key]: event.target.value }))
-                        }
-                      />
-                    )}
-                  </label>
-                )
-              })}
-
-              <label className="field-block">
-                <span>Subir foto principal (o usa /public/hector-riquelme.jpg)</span>
-                <input type="file" accept="image/*" onChange={handleImageUpload} />
-              </label>
-            </div>
-
-            <div className="editor-actions">
-              <button className="btn btn-outline" onClick={resetChanges}>
-                Restablecer
-              </button>
-              <button className="btn btn-primary" onClick={saveChanges}>
-                Guardar cambios
-              </button>
-            </div>
-          </aside>
-        </div>
-      ) : null}
     </div>
   )
 }
