@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useState } from 'react'
 import { AiOutlineRobot } from 'react-icons/ai'
 import { FaDatabase, FaLinkedin } from 'react-icons/fa'
 import {
@@ -14,8 +14,6 @@ import {
   SiReact,
 } from 'react-icons/si'
 
-const STORAGE_KEY = 'hector-portfolio-v3'
-
 const defaultData = {
   brand: 'Hector Riquelme',
   name: 'Hector',
@@ -27,8 +25,8 @@ const defaultData = {
   whatsapp: '56920398043',
   whatsappMessage: 'Hola Hector, vi tu perfil profesional y me gustaria conversar sobre un proyecto.',
   instagramHandle: 'hector_riquelme',
-  linkedin: 'https://linkedin.com',
-  github: 'https://github.com',
+  linkedin: 'https://www.linkedin.com/in/hector-riquelme',
+  github: 'https://github.com/HectorRiquelme',
   email: 'contacto@hectorriquelme.dev',
   heroImage: '/hector-riquelme.jpg',
   education1Title: 'Ingeniero Civil en Informatica',
@@ -39,28 +37,6 @@ const defaultData = {
   contactText:
     'Si necesitas apoyo en desarrollo movil, web, bases de datos, automatizacion o IA, escribeme directo por WhatsApp.',
 }
-
-const editableFields = [
-  ['brand', 'Marca'],
-  ['name', 'Nombre'],
-  ['lastName', 'Apellido'],
-  ['role', 'Cargo'],
-  ['summary', 'Descripcion profesional'],
-  ['location', 'Ubicacion'],
-  ['whatsapp', 'WhatsApp (solo numeros)'],
-  ['whatsappMessage', 'Mensaje inicial de WhatsApp'],
-  ['instagramHandle', 'Usuario de Instagram'],
-  ['linkedin', 'URL de LinkedIn'],
-  ['github', 'URL de GitHub'],
-  ['email', 'Email'],
-  ['heroImage', 'URL de foto principal'],
-  ['education1Title', 'Titulo formacion 1'],
-  ['education1Org', 'Institucion 1'],
-  ['education2Title', 'Titulo formacion 2'],
-  ['education2Org', 'Institucion 2'],
-  ['contactTitle', 'Titulo de contacto'],
-  ['contactText', 'Texto de contacto'],
-]
 
 const stackItems = [
   { icon: SiAndroid, title: 'Android Nativo', level: 'Senior' },
@@ -101,20 +77,12 @@ function buildInstagramLink(handle) {
 }
 
 export default function App() {
-  const [data] = useState(defaultData)
+  const data = defaultData
   const [imageLoadFailed, setImageLoadFailed] = useState(false)
 
-  useEffect(() => {
-    setImageLoadFailed(false)
-  }, [data.heroImage])
-
-  const whatsappHref = useMemo(() => {
-    const phone = sanitizePhone(data.whatsapp)
-    const text = encodeURIComponent(data.whatsappMessage)
-    return `https://wa.me/${phone}?text=${text}`
-  }, [data.whatsapp, data.whatsappMessage])
-
-  const instagramHref = useMemo(() => buildInstagramLink(data.instagramHandle), [data.instagramHandle])
+  const phone = sanitizePhone(data.whatsapp)
+  const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(data.whatsappMessage)}`
+  const instagramHref = buildInstagramLink(data.instagramHandle)
 
   const photoSrc = (data.heroImage || '').trim()
   const hasPhoto = Boolean(photoSrc) && !imageLoadFailed
@@ -186,7 +154,6 @@ export default function App() {
               ) : (
                 <div className="portrait-placeholder">
                   <span>{initials}</span>
-                  <p>Sube tu foto real desde el editor para reemplazar este espacio.</p>
                 </div>
               )}
             </div>
