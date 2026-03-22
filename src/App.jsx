@@ -24,7 +24,7 @@ const defaultData = {
   location: 'Chile - Remoto y presencial',
   whatsapp: '56920398043',
   whatsappMessage: 'Hola Hector, vi tu perfil profesional y me gustaria conversar sobre un proyecto.',
-  instagramHandle: 'hector_riquelme',
+  instagramHandle: 'hector__riquelme',
   linkedin: 'https://www.linkedin.com/in/hector-riquelme',
   github: 'https://github.com/HectorRiquelme',
   email: 'contacto@hectorriquelme.dev',
