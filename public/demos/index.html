@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Héctor Riquelme - Demos de Carruseles</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+  header { text-align: center; margin-bottom: 4rem; }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: .75rem;
+  }
+  .tag-line { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: #6366f1;
+    box-shadow: 0 20px 40px rgba(0,0,0,.3);
+  }
+  .thumb {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+  }
+  .thumb.a { background-image: linear-gradient(135deg, #e63946aa, #1a1a1aaa), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80'); }
+  .thumb.b { background-image: linear-gradient(135deg, #6366f1aa, #8b5cf6aa), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80'); }
+  .thumb.c { background-image: linear-gradient(135deg, #f472b6aa, #0a0a0faa), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'); }
+  .card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+  .pill {
+    display: inline-block;
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: .25rem .75rem;
+    border-radius: 999px;
+    margin-bottom: .75rem;
+    width: fit-content;
+  }
+  .pill.a { background: #7f1d1d; color: #fecaca; }
+  .pill.b { background: #4338ca; color: #c7d2fe; }
+  .pill.c { background: #9d174d; color: #fbcfe8; }
+  .card h3 { font-size: 1.3rem; color: #fff; margin-bottom: .5rem; }
+  .card p { color: #94a3b8; font-size: .92rem; flex-grow: 1; margin-bottom: 1rem; }
+  .techs { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+  .techs span {
+    background: #0f172a;
+    color: #64748b;
+    font-size: .72rem;
+    padding: .25rem .6rem;
+    border-radius: 4px;
+    border: 1px solid #334155;
+  }
+  .view {
+    color: #6366f1;
+    font-weight: 600;
+    font-size: .9rem;
+  }
+  footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: .88rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>Demos de carruseles — Héctor Riquelme</h1>
+    <p class="tag-line">Tres implementaciones distintas de carrusel hechas desde cero en HTML, CSS y JavaScript. Sin frameworks, sin dependencias, 100% responsive.</p>
+  </header>
+
+  <div class="grid">
+
+    <a class="card" href="restaurant/index.html">
+      <div class="thumb a"></div>
+      <div class="card-body">
+        <span class="pill a">Fade Carousel</span>
+        <h3>Restaurante — Sabor &amp; Fuego</h3>
+        <p>Carrusel con transición fade, auto-play, navegación por flechas, dots, teclado y soporte touch.</p>
+        <div class="techs">
+          <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span><span>Responsive</span>
+        </div>
+        <span class="view">Ver demo →</span>
+      </div>
+    </a>
+
+    <a class="card" href="services/index.html">
+      <div class="thumb b"></div>
+      <div class="card-body">
+        <span class="pill b">Multi-slide</span>
+        <h3>Agencia — NovaStudio</h3>
+        <p>Carrusel de testimonios con múltiples slides visibles, breakpoints responsive, swipe y auto-play.</p>
+        <div class="techs">
+          <span>HTML5</span><span>CSS Grid</span><span>Transform</span><span>Touch events</span>
+        </div>
+        <span class="view">Ver demo →</span>
+      </div>
+    </a>
+
+    <a class="card" href="portfolio/index.html">
+      <div class="thumb c"></div>
+      <div class="card-body">
+        <span class="pill c">3D Coverflow</span>
+        <h3>Portafolio — Proyectos</h3>
+        <p>Carrusel estilo coverflow con perspectiva 3D, drag con mouse, teclado y animaciones suaves.</p>
+        <div class="techs">
+          <span>CSS 3D</span><span>Perspective</span><span>Drag</span><span>Keyboard nav</span>
+        </div>
+        <span class="view">Ver demo →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Héctor Riquelme — Desarrollo web a medida</p>
+  </footer>
+</div>
+
+</body>
+</html>

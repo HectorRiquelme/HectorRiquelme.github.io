@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabor & Fuego - Restaurante</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo">Sabor <span>&amp;</span> Fuego</h1>
+    <nav>
+      <a href="#menu">Menú</a>
+      <a href="#reservas">Reservas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Cocina de autor, ingredientes locales</h2>
+    <p>Una experiencia gastronómica en el corazón de la ciudad.</p>
+    <a href="#menu" class="btn">Ver nuestros platos</a>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="container">
+    <h2 class="section-title">Platos destacados</h2>
+    <p class="section-sub">Nuestras creaciones más pedidas por los comensales</p>
+
+    <div class="carousel" data-carousel>
+      <div class="carousel-track" data-track>
+
+        <article class="slide active">
+          <div class="slide-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&q=80');"></div>
+          <div class="slide-content">
+            <span class="tag">Plato principal</span>
+            <h3>Salmón a la parrilla</h3>
+            <p>Salmón fresco con reducción de cítricos, quinoa y vegetales de estación.</p>
+            <span class="price">$18.500</span>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-img" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&q=80');"></div>
+          <div class="slide-content">
+            <span class="tag">Entrada</span>
+            <h3>Pancakes de maíz</h3>
+            <p>Pancakes dorados con crema agria, cebollín y huevos de campo.</p>
+            <span class="price">$9.900</span>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80');"></div>
+          <div class="slide-content">
+            <span class="tag">Italiana</span>
+            <h3>Pizza margarita</h3>
+            <p>Masa madre, tomate San Marzano, mozzarella fior di latte y albahaca fresca.</p>
+            <span class="price">$14.200</span>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-img" style="background-image: url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=1200&q=80');"></div>
+          <div class="slide-content">
+            <span class="tag">Hamburguesa</span>
+            <h3>Burger de la casa</h3>
+            <p>Carne angus madurada, queso cheddar, tocino crujiente y pan brioche artesanal.</p>
+            <span class="price">$13.500</span>
+          </div>
+        </article>
+
+        <article class="slide">
+          <div class="slide-img" style="background-image: url('https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1200&q=80');"></div>
+          <div class="slide-content">
+            <span class="tag">Postre</span>
+            <h3>Tarta de chocolate</h3>
+            <p>Tarta tibia de chocolate belga con helado de vainilla y frutos rojos.</p>
+            <span class="price">$7.800</span>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="carousel-btn prev" data-prev aria-label="Anterior">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M15.4 7.4L14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+      </button>
+      <button class="carousel-btn next" data-next aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M8.6 16.6L10 18l6-6-6-6-1.4 1.4L13.2 12z"/></svg>
+      </button>
+
+      <div class="carousel-dots" data-dots></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Sabor &amp; Fuego — Demo por Héctor Riquelme</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
