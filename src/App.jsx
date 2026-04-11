@@ -51,6 +51,45 @@ const stackItems = [
   { icon: SiOpenai, title: 'IA aplicada', level: 'Avanzado' },
 ]
 
+const projectItems = [
+  {
+    title: 'Mueblería Herrera',
+    category: 'Landing Page',
+    description:
+      'Sitio web publicado para mueblería en Parral, Región del Maule. Diseño limpio, galería de productos y contacto directo por WhatsApp.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
+    image: '/projects/muebleria-herrera.jpg',
+    link: 'http://34.46.122.42/',
+  },
+  {
+    title: 'Sabor & Fuego',
+    category: 'Restaurante — Fade Carousel',
+    description:
+      'Landing de restaurante con carrusel de platos destacados. Transición fade, auto-play con pausa en hover, navegación por teclado y soporte táctil.',
+    tags: ['HTML', 'CSS', 'Vanilla JS', 'Touch'],
+    image: '/projects/restaurant.jpg',
+    link: '/demos/restaurant/index.html',
+  },
+  {
+    title: 'NovaStudio',
+    category: 'Agencia — Multi-slide Carousel',
+    description:
+      'Landing de agencia con carrusel de testimonios multi-slide. Breakpoints responsive (1/2/3 tarjetas), swipe táctil y auto-play con reinicio al interactuar.',
+    tags: ['HTML', 'CSS Grid', 'Transform', 'Responsive'],
+    image: '/projects/services.jpg',
+    link: '/demos/services/index.html',
+  },
+  {
+    title: 'Portafolio 3D',
+    category: 'Coverflow Carousel',
+    description:
+      'Portafolio con carrusel tipo coverflow 3D. CSS perspective, rotateY y translateZ, drag con mouse, teclado y navegación por click en slides laterales.',
+    tags: ['CSS 3D', 'Perspective', 'Drag', 'Keyboard'],
+    image: '/projects/portfolio.jpg',
+    link: '/demos/portfolio/index.html',
+  },
+]
+
 const profileHighlights = [
   {
     title: 'Desarrollo movil',
@@ -99,6 +138,7 @@ export default function App() {
           <a href="#perfil">Perfil</a>
           <a href="#tecnologias">Tecnologias</a>
           <a href="#especialidad">Especialidad</a>
+          <a href="#proyectos">Proyectos</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div className="nav-actions">
@@ -210,6 +250,39 @@ export default function App() {
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="proyectos" className="section projects-section">
+        <div className="section-head">
+          <p className="card-kicker">Proyectos</p>
+          <h2>Trabajos publicados y demos en vivo</h2>
+        </div>
+        <div className="projects-grid">
+          {projectItems.map((item) => (
+            <a
+              className="project-card"
+              key={item.title}
+              href={item.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="project-thumb">
+                <img src={item.image} alt={item.title} loading="lazy" />
+              </div>
+              <div className="project-body">
+                <p className="project-cat">{item.category}</p>
+                <h3>{item.title}</h3>
+                <p className="project-desc">{item.description}</p>
+                <div className="project-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="project-link">Ver en vivo →</span>
+              </div>
+            </a>
           ))}
         </div>
       </section>
