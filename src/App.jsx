@@ -90,6 +90,138 @@ const projectItems = [
   },
 ]
 
+const devCategories = [
+  'Todos',
+  'Plataformas Chilenas',
+  'E-commerce',
+  'CRMs',
+  'Bots IA',
+  'WordPress',
+]
+
+const devProjects = [
+  {
+    title: 'Facturacion Electronica SII',
+    category: 'Plataformas Chilenas',
+    description:
+      'Sistema completo de facturacion electronica chilena: XML DTE, firma digital X.509, timbre electronico TED y PDFs con codigo PDF417.',
+    tags: ['Node.js', 'Express', 'SQLite', 'node-forge', 'pdfkit'],
+    github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
+  },
+  {
+    title: 'Transbank WebPay Plus',
+    category: 'Plataformas Chilenas',
+    description:
+      'Flujo completo de pagos WebPay Plus: catalogo, carrito, formulario Transbank y comprobante con codigo de autorizacion.',
+    tags: ['Node.js', 'React', 'Vite', 'Tailwind', 'SQLite'],
+    github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
+  },
+  {
+    title: 'Pagos Khipu',
+    category: 'Plataformas Chilenas',
+    description:
+      'Pagos por transferencia bancaria con seleccion de banco, webhooks de confirmacion y expiracion automatica de cobros a 24h.',
+    tags: ['Python', 'FastAPI', 'React', 'APScheduler', 'SQLite'],
+    github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
+  },
+  {
+    title: 'Child Theme WooCommerce',
+    category: 'E-commerce',
+    description:
+      'Tema hijo WooCommerce para tienda deportiva chilena con checkout personalizado, validacion RUT y selector de 346 comunas.',
+    tags: ['PHP', 'WordPress', 'WooCommerce', 'JavaScript'],
+    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+  },
+  {
+    title: 'Tema Shopify Minimalista',
+    category: 'E-commerce',
+    description:
+      'Tema personalizado basado en Dawn para ropa masculina: hero con video, mega menu, parallax y cumplimiento legal chileno.',
+    tags: ['Shopify Liquid', 'HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+  },
+  {
+    title: 'Plugin Despacho por Comunas',
+    category: 'E-commerce',
+    description:
+      'Plugin WooCommerce con 346 comunas de Chile, zonas de despacho configurables con costos diferenciados y retiro en tienda.',
+    tags: ['PHP', 'WordPress', 'WooCommerce', 'CSV'],
+    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+  },
+  {
+    title: 'HubSpot + WooCommerce',
+    category: 'CRMs',
+    description:
+      'Microservicio que sincroniza ordenes WooCommerce con HubSpot CRM via webhooks. Pipeline kanban visual con metricas en tiempo real.',
+    tags: ['Node.js', 'Express', 'SQLite', 'HubSpot API'],
+    github: 'https://github.com/HectorRiquelme/integraciones-crm',
+  },
+  {
+    title: 'GoHighLevel Centro de Salud',
+    category: 'CRMs',
+    description:
+      'Automatizacion para centro de salud: pipeline de pacientes, WhatsApp con recordatorios automaticos y agenda por doctor.',
+    tags: ['Node.js', 'Express', 'React', 'SQLite'],
+    github: 'https://github.com/HectorRiquelme/integraciones-crm',
+  },
+  {
+    title: 'Pipedrive + Google Sheets',
+    category: 'CRMs',
+    description:
+      'Sync bidireccional cada 5 minutos entre CRM y Google Sheets con deteccion de conflictos y log de historial completo.',
+    tags: ['Python', 'FastAPI', 'APScheduler', 'Jinja2'],
+    github: 'https://github.com/HectorRiquelme/integraciones-crm',
+  },
+  {
+    title: 'Bot de Cobranza con Voz',
+    category: 'Bots IA',
+    description:
+      'Cobranza automatizada con scripts personalizados por nivel de mora (4 tonos) y generacion de audio WAV por deudor.',
+    tags: ['Python', 'FastAPI', 'React', 'Vite', 'SQLite'],
+    github: 'https://github.com/HectorRiquelme/bots-ia',
+  },
+  {
+    title: 'Chatbot WhatsApp PyME',
+    category: 'Bots IA',
+    description:
+      'Chatbot de atencion al cliente con UI WhatsApp, LLM configurable con modo mock, escalamiento a humano y metricas.',
+    tags: ['Node.js', 'Express', 'React', 'SQLite'],
+    github: 'https://github.com/HectorRiquelme/bots-ia',
+  },
+  {
+    title: 'Cotizaciones Construccion',
+    category: 'Bots IA',
+    description:
+      'Generador de cotizaciones para construccion: calculo de materiales, mano de obra e IVA 19% con PDF descargable.',
+    tags: ['Next.js 14', 'TypeScript', 'Supabase', 'jsPDF'],
+    github: 'https://github.com/HectorRiquelme/bots-ia',
+  },
+  {
+    title: 'Diagnostico Carrusel WordPress',
+    category: 'WordPress',
+    description:
+      'Caso de estudio con Docker: 3 bugs intencionales en carrusel WordPress, diagnostico con DevTools y script de correccion.',
+    tags: ['PHP', 'WordPress', 'Docker', 'jQuery', 'Bash'],
+    github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+  },
+  {
+    title: 'Optimizacion WooCommerce',
+    category: 'WordPress',
+    description:
+      'Stack Docker con Nginx + Redis + 500 productos: FastCGI cache, lazy loading, minificacion y benchmark automatizado.',
+    tags: ['PHP', 'Nginx', 'Redis', 'Docker', 'WooCommerce'],
+    github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+  },
+  {
+    title: 'Toolkit Migracion WordPress',
+    category: 'WordPress',
+    description:
+      'Scripts de backup, migracion, SSL y verificacion post-migracion con entorno Docker de 2 instancias WordPress.',
+    tags: ['Bash', 'PHP', 'WP-CLI', 'Docker', 'MySQL'],
+    github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+  },
+]
+
 const profileHighlights = [
   {
     title: 'Desarrollo movil',
@@ -118,6 +250,12 @@ function buildInstagramLink(handle) {
 export default function App() {
   const data = defaultData
   const [imageLoadFailed, setImageLoadFailed] = useState(false)
+  const [activeDevCategory, setActiveDevCategory] = useState('Todos')
+
+  const filteredDevProjects =
+    activeDevCategory === 'Todos'
+      ? devProjects
+      : devProjects.filter((p) => p.category === activeDevCategory)
 
   const phone = sanitizePhone(data.whatsapp)
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(data.whatsappMessage)}`
@@ -139,6 +277,7 @@ export default function App() {
           <a href="#tecnologias">Tecnologias</a>
           <a href="#especialidad">Especialidad</a>
           <a href="#proyectos">Proyectos</a>
+          <a href="#desarrollo">Desarrollo</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div className="nav-actions">
@@ -281,6 +420,50 @@ export default function App() {
                   ))}
                 </div>
                 <span className="project-link">Ver en vivo →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="desarrollo" className="section projects-section">
+        <div className="section-head">
+          <p className="card-kicker">Desarrollo Full Stack</p>
+          <h2>Proyectos de integracion, e-commerce e IA</h2>
+        </div>
+        <div className="dev-filters">
+          {devCategories.map((cat) => (
+            <button
+              key={cat}
+              className={`dev-filter-btn${activeDevCategory === cat ? ' active' : ''}`}
+              onClick={() => setActiveDevCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        <div className="projects-grid">
+          {filteredDevProjects.map((item) => (
+            <a
+              className="project-card"
+              key={item.title}
+              href={item.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="dev-project-header">
+                <SiGithub className="dev-gh-icon" />
+              </div>
+              <div className="project-body">
+                <p className="project-cat">{item.category}</p>
+                <h3>{item.title}</h3>
+                <p className="project-desc">{item.description}</p>
+                <div className="project-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="project-link">Ver en GitHub →</span>
               </div>
             </a>
           ))}
