@@ -113,7 +113,7 @@ const integracionesProjects = [
     tags: ['Node.js', 'Express', 'SQLite'],
     icons: [SiNodedotjs, SiExpress, BiBarcode],
     gradient: 'gradient-cyan',
-    github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
+    github: 'https://github.com/HectorRiquelme/pagos-chile-facturacion-sii',
   },
   {
     title: 'Transbank WebPay Plus',
@@ -123,7 +123,7 @@ const integracionesProjects = [
     tags: ['Node.js', 'React', 'SQLite'],
     icons: [SiNodedotjs, SiReact, SiTailwindcss],
     gradient: 'gradient-blue',
-    github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
+    github: 'https://github.com/HectorRiquelme/pagos-chile-transbank-webpay',
   },
   {
     title: 'Pagos Khipu',
@@ -133,7 +133,7 @@ const integracionesProjects = [
     tags: ['Python', 'FastAPI', 'React'],
     icons: [SiPython, SiFastapi, SiReact],
     gradient: 'gradient-emerald',
-    github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
+    github: 'https://github.com/HectorRiquelme/pagos-chile-khipu',
   },
   {
     title: 'HubSpot + WooCommerce',
@@ -143,7 +143,7 @@ const integracionesProjects = [
     tags: ['Node.js', 'Express', 'SQLite'],
     icons: [SiNodedotjs, SiWoocommerce, SiSqlite],
     gradient: 'gradient-orange',
-    github: 'https://github.com/HectorRiquelme/integraciones-crm',
+    github: 'https://github.com/HectorRiquelme/crm-hubspot-woocommerce-sync',
   },
   {
     title: 'GoHighLevel Centro Salud',
@@ -153,7 +153,7 @@ const integracionesProjects = [
     tags: ['Node.js', 'React', 'SQLite'],
     icons: [SiNodedotjs, SiReact, SiSqlite],
     gradient: 'gradient-green',
-    github: 'https://github.com/HectorRiquelme/integraciones-crm',
+    github: 'https://github.com/HectorRiquelme/crm-gohighlevel-centro-salud',
   },
   {
     title: 'Pipedrive + Google Sheets',
@@ -163,7 +163,7 @@ const integracionesProjects = [
     tags: ['Python', 'FastAPI'],
     icons: [SiPython, SiFastapi, FaDatabase],
     gradient: 'gradient-sky',
-    github: 'https://github.com/HectorRiquelme/integraciones-crm',
+    github: 'https://github.com/HectorRiquelme/crm-pipedrive-sheets-sync',
   },
 ]
 
@@ -176,7 +176,7 @@ const ecommerceProjects = [
     tags: ['PHP', 'WooCommerce', 'JS'],
     icons: [FaPhp, SiWoocommerce, FaWordpress],
     gradient: 'gradient-red',
-    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+    github: 'https://github.com/HectorRiquelme/ecommerce-woocommerce-theme-deportiva',
   },
   {
     title: 'Tema Shopify Minimalista',
@@ -186,7 +186,7 @@ const ecommerceProjects = [
     tags: ['Liquid', 'CSS', 'JS'],
     icons: [SiShopify, SiTailwindcss],
     gradient: 'gradient-gray',
-    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+    github: 'https://github.com/HectorRiquelme/ecommerce-shopify-tema-minimalista',
   },
   {
     title: 'Plugin Despacho Comunas',
@@ -196,7 +196,7 @@ const ecommerceProjects = [
     tags: ['PHP', 'WooCommerce', 'CSV'],
     icons: [FaPhp, SiWoocommerce],
     gradient: 'gradient-purple',
-    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+    github: 'https://github.com/HectorRiquelme/ecommerce-woocommerce-plugin-despacho',
   },
 ]
 
@@ -209,7 +209,7 @@ const iaProjects = [
     tags: ['Python', 'FastAPI', 'React'],
     icons: [SiPython, AiOutlineRobot, SiReact],
     gradient: 'gradient-rose',
-    github: 'https://github.com/HectorRiquelme/bots-ia',
+    github: 'https://github.com/HectorRiquelme/ia-bot-cobranza-voz',
   },
   {
     title: 'Chatbot WhatsApp PyME',
@@ -219,7 +219,7 @@ const iaProjects = [
     tags: ['Node.js', 'React', 'LLM'],
     icons: [SiNodedotjs, SiOpenai, SiReact],
     gradient: 'gradient-green-dark',
-    github: 'https://github.com/HectorRiquelme/bots-ia',
+    github: 'https://github.com/HectorRiquelme/ia-chatbot-whatsapp-pyme',
   },
   {
     title: 'Cotizaciones Construccion',
@@ -229,7 +229,7 @@ const iaProjects = [
     tags: ['Next.js', 'TypeScript', 'Supabase'],
     icons: [SiNextdotjs, SiTypescript, SiSupabase],
     gradient: 'gradient-amber',
-    github: 'https://github.com/HectorRiquelme/bots-ia',
+    github: 'https://github.com/HectorRiquelme/ia-cotizaciones-construccion',
   },
 ]
 
@@ -242,7 +242,7 @@ const wordpressProjects = [
     tags: ['PHP', 'Docker', 'jQuery'],
     icons: [FaWordpress, FaDocker, FaPhp],
     gradient: 'gradient-slate',
-    github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+    github: 'https://github.com/HectorRiquelme/wordpress-diagnostico-carrusel',
   },
   {
     title: 'Optimizacion WooCommerce',
@@ -252,7 +252,7 @@ const wordpressProjects = [
     tags: ['Nginx', 'Redis', 'Docker'],
     icons: [SiNginx, SiRedis, FaDocker],
     gradient: 'gradient-yellow',
-    github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+    github: 'https://github.com/HectorRiquelme/wordpress-optimizacion-rendimiento',
   },
   {
     title: 'Toolkit Migracion',
@@ -262,7 +262,7 @@ const wordpressProjects = [
     tags: ['Bash', 'WP-CLI', 'MySQL'],
     icons: [FaWordpress, FaDocker, SiMysql],
     gradient: 'gradient-indigo',
-    github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+    github: 'https://github.com/HectorRiquelme/wordpress-toolkit-migracion',
   },
 ]
 
