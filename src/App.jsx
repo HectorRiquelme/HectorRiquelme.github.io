@@ -1,17 +1,31 @@
 import { useState } from 'react'
 import { AiOutlineRobot } from 'react-icons/ai'
-import { FaDatabase, FaLinkedin } from 'react-icons/fa'
+import { FaDatabase, FaLinkedin, FaWordpress, FaDocker, FaPhp } from 'react-icons/fa'
+import { BiBarcode } from 'react-icons/bi'
 import {
   SiAndroid,
   SiDotnet,
   SiExpress,
+  SiFastapi,
   SiFlutter,
   SiGithub,
   SiInstagram,
+  SiKotlin,
+  SiMysql,
+  SiNextdotjs,
+  SiNginx,
   SiNodedotjs,
   SiOpenai,
   SiPostgresql,
+  SiPython,
   SiReact,
+  SiRedis,
+  SiShopify,
+  SiSqlite,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiWoocommerce,
 } from 'react-icons/si'
 
 const defaultData = {
@@ -90,135 +104,199 @@ const projectItems = [
   },
 ]
 
-const devCategories = [
-  'Todos',
-  'Plataformas Chilenas',
-  'E-commerce',
-  'CRMs',
-  'Bots IA',
-  'WordPress',
-]
-
-const devProjects = [
+const integracionesProjects = [
   {
     title: 'Facturacion Electronica SII',
-    category: 'Plataformas Chilenas',
+    subtitle: 'DTE + Firma Digital X.509',
     description:
-      'Sistema completo de facturacion electronica chilena: XML DTE, firma digital X.509, timbre electronico TED y PDFs con codigo PDF417.',
-    tags: ['Node.js', 'Express', 'SQLite', 'node-forge', 'pdfkit'],
+      'Sistema de facturacion chilena: XML DTE, firma digital, timbre electronico TED y PDFs con codigo PDF417.',
+    tags: ['Node.js', 'Express', 'SQLite'],
+    icons: [SiNodedotjs, SiExpress, BiBarcode],
+    gradient: 'gradient-cyan',
     github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
   },
   {
     title: 'Transbank WebPay Plus',
-    category: 'Plataformas Chilenas',
+    subtitle: 'Pasarela de Pagos',
     description:
-      'Flujo completo de pagos WebPay Plus: catalogo, carrito, formulario Transbank y comprobante con codigo de autorizacion.',
-    tags: ['Node.js', 'React', 'Vite', 'Tailwind', 'SQLite'],
+      'Flujo completo WebPay Plus: catalogo, carrito, formulario Transbank y comprobante con codigo de autorizacion.',
+    tags: ['Node.js', 'React', 'SQLite'],
+    icons: [SiNodedotjs, SiReact, SiTailwindcss],
+    gradient: 'gradient-blue',
     github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
   },
   {
     title: 'Pagos Khipu',
-    category: 'Plataformas Chilenas',
+    subtitle: 'Transferencia Bancaria',
     description:
-      'Pagos por transferencia bancaria con seleccion de banco, webhooks de confirmacion y expiracion automatica de cobros a 24h.',
-    tags: ['Python', 'FastAPI', 'React', 'APScheduler', 'SQLite'],
+      'Pagos por transferencia con 8 bancos chilenos, webhooks de confirmacion y expiracion automatica a 24h.',
+    tags: ['Python', 'FastAPI', 'React'],
+    icons: [SiPython, SiFastapi, SiReact],
+    gradient: 'gradient-emerald',
     github: 'https://github.com/HectorRiquelme/integraciones-chilenas',
   },
   {
-    title: 'Child Theme WooCommerce',
-    category: 'E-commerce',
-    description:
-      'Tema hijo WooCommerce para tienda deportiva chilena con checkout personalizado, validacion RUT y selector de 346 comunas.',
-    tags: ['PHP', 'WordPress', 'WooCommerce', 'JavaScript'],
-    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
-  },
-  {
-    title: 'Tema Shopify Minimalista',
-    category: 'E-commerce',
-    description:
-      'Tema personalizado basado en Dawn para ropa masculina: hero con video, mega menu, parallax y cumplimiento legal chileno.',
-    tags: ['Shopify Liquid', 'HTML', 'CSS', 'JavaScript'],
-    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
-  },
-  {
-    title: 'Plugin Despacho por Comunas',
-    category: 'E-commerce',
-    description:
-      'Plugin WooCommerce con 346 comunas de Chile, zonas de despacho configurables con costos diferenciados y retiro en tienda.',
-    tags: ['PHP', 'WordPress', 'WooCommerce', 'CSV'],
-    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
-  },
-  {
     title: 'HubSpot + WooCommerce',
-    category: 'CRMs',
+    subtitle: 'CRM Sync via Webhooks',
     description:
-      'Microservicio que sincroniza ordenes WooCommerce con HubSpot CRM via webhooks. Pipeline kanban visual con metricas en tiempo real.',
-    tags: ['Node.js', 'Express', 'SQLite', 'HubSpot API'],
+      'Microservicio que sincroniza ordenes WooCommerce con HubSpot CRM. Pipeline kanban con metricas en tiempo real.',
+    tags: ['Node.js', 'Express', 'SQLite'],
+    icons: [SiNodedotjs, SiWoocommerce, SiSqlite],
+    gradient: 'gradient-orange',
     github: 'https://github.com/HectorRiquelme/integraciones-crm',
   },
   {
-    title: 'GoHighLevel Centro de Salud',
-    category: 'CRMs',
+    title: 'GoHighLevel Centro Salud',
+    subtitle: 'Automatizacion CRM Salud',
     description:
-      'Automatizacion para centro de salud: pipeline de pacientes, WhatsApp con recordatorios automaticos y agenda por doctor.',
-    tags: ['Node.js', 'Express', 'React', 'SQLite'],
+      'Pipeline de pacientes con WhatsApp automatizado, recordatorios 24h/1h y agenda por doctor para centro medico.',
+    tags: ['Node.js', 'React', 'SQLite'],
+    icons: [SiNodedotjs, SiReact, SiSqlite],
+    gradient: 'gradient-green',
     github: 'https://github.com/HectorRiquelme/integraciones-crm',
   },
   {
     title: 'Pipedrive + Google Sheets',
-    category: 'CRMs',
+    subtitle: 'Sync Bidireccional',
     description:
-      'Sync bidireccional cada 5 minutos entre CRM y Google Sheets con deteccion de conflictos y log de historial completo.',
-    tags: ['Python', 'FastAPI', 'APScheduler', 'Jinja2'],
+      'Sync cada 5 minutos entre CRM y Google Sheets con deteccion de conflictos y log de historial completo.',
+    tags: ['Python', 'FastAPI'],
+    icons: [SiPython, SiFastapi, FaDatabase],
+    gradient: 'gradient-sky',
     github: 'https://github.com/HectorRiquelme/integraciones-crm',
   },
+]
+
+const ecommerceProjects = [
+  {
+    title: 'Child Theme WooCommerce',
+    subtitle: 'Tienda Deportiva Chile',
+    description:
+      'Tema hijo WooCommerce con checkout personalizado, validacion RUT y selector de 346 comunas.',
+    tags: ['PHP', 'WooCommerce', 'JS'],
+    icons: [FaPhp, SiWoocommerce, FaWordpress],
+    gradient: 'gradient-red',
+    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+  },
+  {
+    title: 'Tema Shopify Minimalista',
+    subtitle: 'Dawn + Custom Sections',
+    description:
+      'Tema Shopify para ropa masculina: hero con video, mega menu, parallax y cumplimiento legal chileno.',
+    tags: ['Liquid', 'CSS', 'JS'],
+    icons: [SiShopify, SiTailwindcss],
+    gradient: 'gradient-gray',
+    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+  },
+  {
+    title: 'Plugin Despacho Comunas',
+    subtitle: '346 Comunas de Chile',
+    description:
+      'Plugin WooCommerce con zonas de despacho configurables, costos diferenciados y retiro en tienda.',
+    tags: ['PHP', 'WooCommerce', 'CSV'],
+    icons: [FaPhp, SiWoocommerce],
+    gradient: 'gradient-purple',
+    github: 'https://github.com/HectorRiquelme/shopify-woocommerce',
+  },
+]
+
+const iaProjects = [
   {
     title: 'Bot de Cobranza con Voz',
-    category: 'Bots IA',
+    subtitle: 'TTS + Scripts por Mora',
     description:
-      'Cobranza automatizada con scripts personalizados por nivel de mora (4 tonos) y generacion de audio WAV por deudor.',
-    tags: ['Python', 'FastAPI', 'React', 'Vite', 'SQLite'],
+      'Cobranza automatizada con 4 tonos segun nivel de mora y generacion de audio WAV personalizado por deudor.',
+    tags: ['Python', 'FastAPI', 'React'],
+    icons: [SiPython, AiOutlineRobot, SiReact],
+    gradient: 'gradient-rose',
     github: 'https://github.com/HectorRiquelme/bots-ia',
   },
   {
     title: 'Chatbot WhatsApp PyME',
-    category: 'Bots IA',
+    subtitle: 'LLM + Escalamiento Humano',
     description:
-      'Chatbot de atencion al cliente con UI WhatsApp, LLM configurable con modo mock, escalamiento a humano y metricas.',
-    tags: ['Node.js', 'Express', 'React', 'SQLite'],
+      'Chatbot con UI tipo WhatsApp, LLM configurable con modo mock (18 reglas) y escalamiento automatico a agente.',
+    tags: ['Node.js', 'React', 'LLM'],
+    icons: [SiNodedotjs, SiOpenai, SiReact],
+    gradient: 'gradient-green-dark',
     github: 'https://github.com/HectorRiquelme/bots-ia',
   },
   {
     title: 'Cotizaciones Construccion',
-    category: 'Bots IA',
+    subtitle: 'IA + PDF Generator',
     description:
-      'Generador de cotizaciones para construccion: calculo de materiales, mano de obra e IVA 19% con PDF descargable.',
-    tags: ['Next.js 14', 'TypeScript', 'Supabase', 'jsPDF'],
+      'Asistente de cotizaciones con calculo de materiales, mano de obra, IVA 19% y PDF descargable.',
+    tags: ['Next.js', 'TypeScript', 'Supabase'],
+    icons: [SiNextdotjs, SiTypescript, SiSupabase],
+    gradient: 'gradient-amber',
     github: 'https://github.com/HectorRiquelme/bots-ia',
   },
+]
+
+const wordpressProjects = [
   {
-    title: 'Diagnostico Carrusel WordPress',
-    category: 'WordPress',
+    title: 'Diagnostico Carrusel',
+    subtitle: 'DevTools + Docker',
     description:
-      'Caso de estudio con Docker: 3 bugs intencionales en carrusel WordPress, diagnostico con DevTools y script de correccion.',
-    tags: ['PHP', 'WordPress', 'Docker', 'jQuery', 'Bash'],
+      'Caso de estudio con 3 bugs intencionales: doble jQuery, CSS roto y script bloqueante. Script auto-fix.',
+    tags: ['PHP', 'Docker', 'jQuery'],
+    icons: [FaWordpress, FaDocker, FaPhp],
+    gradient: 'gradient-slate',
     github: 'https://github.com/HectorRiquelme/wordpress-fixes',
   },
   {
     title: 'Optimizacion WooCommerce',
-    category: 'WordPress',
+    subtitle: 'Nginx + Redis + 500 Productos',
     description:
-      'Stack Docker con Nginx + Redis + 500 productos: FastCGI cache, lazy loading, minificacion y benchmark automatizado.',
-    tags: ['PHP', 'Nginx', 'Redis', 'Docker', 'WooCommerce'],
+      'FastCGI cache, Redis object cache, lazy loading y benchmark con Apache Bench para tienda con 500 productos.',
+    tags: ['Nginx', 'Redis', 'Docker'],
+    icons: [SiNginx, SiRedis, FaDocker],
+    gradient: 'gradient-yellow',
     github: 'https://github.com/HectorRiquelme/wordpress-fixes',
   },
   {
-    title: 'Toolkit Migracion WordPress',
-    category: 'WordPress',
+    title: 'Toolkit Migracion',
+    subtitle: 'Backup + SSL + Verify',
     description:
-      'Scripts de backup, migracion, SSL y verificacion post-migracion con entorno Docker de 2 instancias WordPress.',
-    tags: ['Bash', 'PHP', 'WP-CLI', 'Docker', 'MySQL'],
+      'Scripts completos de migracion: backup con checksum, search-replace serializacion-safe, SSL y verificacion.',
+    tags: ['Bash', 'WP-CLI', 'MySQL'],
+    icons: [FaWordpress, FaDocker, SiMysql],
+    gradient: 'gradient-indigo',
     github: 'https://github.com/HectorRiquelme/wordpress-fixes',
+  },
+]
+
+// Proyectos moviles: placeholder para llenar con apps reales (NDAs suelen limitar detalles)
+const mobileProjects = [
+  {
+    title: 'App Android Nativa',
+    subtitle: 'Proyecto Enterprise',
+    description:
+      'Aplicacion Android nativa desarrollada en Kotlin con arquitectura MVVM, Room Database, Retrofit y Jetpack Compose.',
+    tags: ['Kotlin', 'Jetpack Compose', 'Room'],
+    icons: [SiAndroid, SiKotlin, FaDatabase],
+    gradient: 'gradient-green',
+    status: 'Proyecto privado',
+  },
+  {
+    title: 'App Multiplataforma Flutter',
+    subtitle: 'iOS + Android',
+    description:
+      'App multiplataforma con Flutter para iOS y Android: BLoC pattern, Firebase, notificaciones push y pagos integrados.',
+    tags: ['Flutter', 'Dart', 'Firebase'],
+    icons: [SiFlutter, FaDatabase],
+    gradient: 'gradient-sky',
+    status: 'Proyecto privado',
+  },
+  {
+    title: 'App .NET MAUI',
+    subtitle: 'Multi-plataforma Empresarial',
+    description:
+      'Aplicacion empresarial con .NET MAUI: arquitectura limpia, MVVM Community Toolkit, SQLite local y API REST.',
+    tags: ['.NET MAUI', 'C#', 'SQLite'],
+    icons: [SiDotnet, SiSqlite],
+    gradient: 'gradient-purple',
+    status: 'Proyecto privado',
   },
 ]
 
@@ -250,12 +328,6 @@ function buildInstagramLink(handle) {
 export default function App() {
   const data = defaultData
   const [imageLoadFailed, setImageLoadFailed] = useState(false)
-  const [activeDevCategory, setActiveDevCategory] = useState('Todos')
-
-  const filteredDevProjects =
-    activeDevCategory === 'Todos'
-      ? devProjects
-      : devProjects.filter((p) => p.category === activeDevCategory)
 
   const phone = sanitizePhone(data.whatsapp)
   const whatsappHref = `https://wa.me/${phone}?text=${encodeURIComponent(data.whatsappMessage)}`
@@ -274,10 +346,12 @@ export default function App() {
         </div>
         <div className="nav-links">
           <a href="#perfil">Perfil</a>
-          <a href="#tecnologias">Tecnologias</a>
-          <a href="#especialidad">Especialidad</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#desarrollo">Desarrollo</a>
+          <a href="#tecnologias">Stack</a>
+          <a href="#landings">Landings</a>
+          <a href="#movil">Movil</a>
+          <a href="#integraciones">Integraciones</a>
+          <a href="#ecommerce">E-commerce</a>
+          <a href="#ia">IA</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div className="nav-actions">
@@ -393,10 +467,11 @@ export default function App() {
         </div>
       </section>
 
-      <section id="proyectos" className="section projects-section">
+      <section id="landings" className="section projects-section">
         <div className="section-head">
-          <p className="card-kicker">Proyectos</p>
-          <h2>Trabajos publicados y demos en vivo</h2>
+          <p className="card-kicker">01 · Landings</p>
+          <h2>Sitios publicados y demos en vivo</h2>
+          <p className="section-sub">Landing pages con carruseles, animaciones y tecnicas frontend avanzadas.</p>
         </div>
         <div className="projects-grid">
           {projectItems.map((item) => (
@@ -426,44 +501,168 @@ export default function App() {
         </div>
       </section>
 
-      <section id="desarrollo" className="section projects-section">
+      <section id="movil" className="section dev-section">
         <div className="section-head">
-          <p className="card-kicker">Desarrollo Full Stack</p>
-          <h2>Proyectos de integracion, e-commerce e IA</h2>
+          <p className="card-kicker">02 · Movil</p>
+          <h2>Experiencia en Desarrollo Movil</h2>
+          <p className="section-sub">Apps nativas y multiplataforma desarrolladas para clientes bajo confidencialidad.</p>
         </div>
-        <div className="dev-filters">
-          {devCategories.map((cat) => (
-            <button
-              key={cat}
-              className={`dev-filter-btn${activeDevCategory === cat ? ' active' : ''}`}
-              onClick={() => setActiveDevCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-        <div className="projects-grid">
-          {filteredDevProjects.map((item) => (
-            <a
-              className="project-card"
-              key={item.title}
-              href={item.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="dev-project-header">
-                <SiGithub className="dev-gh-icon" />
+        <div className="dev-grid">
+          {mobileProjects.map((item) => (
+            <article className="dev-card dev-card-private" key={item.title}>
+              <div className={`dev-thumb ${item.gradient}`}>
+                <div className="dev-thumb-icons">
+                  {item.icons.map((Icon, i) => (
+                    <Icon key={i} />
+                  ))}
+                </div>
+                <span className="dev-thumb-label">{item.subtitle}</span>
               </div>
-              <div className="project-body">
-                <p className="project-cat">{item.category}</p>
+              <div className="dev-body">
                 <h3>{item.title}</h3>
-                <p className="project-desc">{item.description}</p>
-                <div className="project-tags">
+                <p>{item.description}</p>
+                <div className="dev-tags">
                   {item.tags.map((tag) => (
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <span className="project-link">Ver en GitHub →</span>
+                <span className="dev-status">{item.status}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="integraciones" className="section dev-section">
+        <div className="section-head">
+          <p className="card-kicker">03 · Integraciones</p>
+          <h2>Integraciones Chile & CRMs</h2>
+          <p className="section-sub">Pasarelas de pago, facturacion electronica y sincronizacion con CRMs.</p>
+        </div>
+        <div className="dev-grid">
+          {integracionesProjects.map((item) => (
+            <a className="dev-card" key={item.title} href={item.github} target="_blank" rel="noreferrer">
+              <div className={`dev-thumb ${item.gradient}`}>
+                <div className="dev-thumb-icons">
+                  {item.icons.map((Icon, i) => (
+                    <Icon key={i} />
+                  ))}
+                </div>
+                <span className="dev-thumb-label">{item.subtitle}</span>
+              </div>
+              <div className="dev-body">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className="dev-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="dev-link">
+                  <SiGithub /> Ver codigo
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="ecommerce" className="section dev-section">
+        <div className="section-head">
+          <p className="card-kicker">04 · E-commerce</p>
+          <h2>Tiendas Online & Temas Personalizados</h2>
+          <p className="section-sub">Temas para Shopify y WooCommerce adaptados al mercado chileno.</p>
+        </div>
+        <div className="dev-grid">
+          {ecommerceProjects.map((item) => (
+            <a className="dev-card" key={item.title} href={item.github} target="_blank" rel="noreferrer">
+              <div className={`dev-thumb ${item.gradient}`}>
+                <div className="dev-thumb-icons">
+                  {item.icons.map((Icon, i) => (
+                    <Icon key={i} />
+                  ))}
+                </div>
+                <span className="dev-thumb-label">{item.subtitle}</span>
+              </div>
+              <div className="dev-body">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className="dev-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="dev-link">
+                  <SiGithub /> Ver codigo
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="ia" className="section dev-section">
+        <div className="section-head">
+          <p className="card-kicker">05 · IA & Bots</p>
+          <h2>Automatizacion con Inteligencia Artificial</h2>
+          <p className="section-sub">Bots, chatbots y asistentes con LLMs, voz sintetica y generacion de documentos.</p>
+        </div>
+        <div className="dev-grid">
+          {iaProjects.map((item) => (
+            <a className="dev-card" key={item.title} href={item.github} target="_blank" rel="noreferrer">
+              <div className={`dev-thumb ${item.gradient}`}>
+                <div className="dev-thumb-icons">
+                  {item.icons.map((Icon, i) => (
+                    <Icon key={i} />
+                  ))}
+                </div>
+                <span className="dev-thumb-label">{item.subtitle}</span>
+              </div>
+              <div className="dev-body">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className="dev-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="dev-link">
+                  <SiGithub /> Ver codigo
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="wordpress" className="section dev-section">
+        <div className="section-head">
+          <p className="card-kicker">06 · WordPress</p>
+          <h2>Diagnostico, Optimizacion y Migracion</h2>
+          <p className="section-sub">Resolucion de problemas, performance y toolkit completo de migracion.</p>
+        </div>
+        <div className="dev-grid">
+          {wordpressProjects.map((item) => (
+            <a className="dev-card" key={item.title} href={item.github} target="_blank" rel="noreferrer">
+              <div className={`dev-thumb ${item.gradient}`}>
+                <div className="dev-thumb-icons">
+                  {item.icons.map((Icon, i) => (
+                    <Icon key={i} />
+                  ))}
+                </div>
+                <span className="dev-thumb-label">{item.subtitle}</span>
+              </div>
+              <div className="dev-body">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className="dev-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+                <span className="dev-link">
+                  <SiGithub /> Ver codigo
+                </span>
               </div>
             </a>
           ))}
